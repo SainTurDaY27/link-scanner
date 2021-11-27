@@ -29,10 +29,7 @@ def get_links(given_url):
 def is_valid_url(given_url: str):
     """Check that given url is valid.
     """
-    status = requests.get(given_url)
-    if status.status_code != requests.codes['ok']:
-        return False
-    return True
+    return requests.head(given_url).ok
 
 
 def invalid_urls(url_list: List[str]) -> List[str]:
